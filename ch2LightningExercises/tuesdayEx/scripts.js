@@ -116,6 +116,11 @@ let employee = {
     uniform: "white overalls",
     cost_per_hour: 25.00,
     insured: true,
+    service: [],
+    addService: function(need) {
+        this.service.push(need);
+        console.log(`${need} has been added to service!`);
+    },
     action: function(object) {
         return `The painter will paint the ${object}`;
     },
@@ -125,9 +130,66 @@ let employee = {
     },
   }
   
-  console.log(painter);
+console.log(painter);
+
+painter.addService('paint-job');
+painter.addService('redo');
 
 console.log(painter.action('wall'));
 painter.newTools('water-bucket');
 
+
+
+// Create an index.html file with a section element with an ID of 'family':
+// Loop over this array of objects and insert the names of the family member
+// s into `<h3>` tags, and append them to the DOM.
+
+
+let family = [
+    {
+      name: "Fred Jones",
+      age: 49,
+      title: "parent"
+    },
+    {
+      name: "Pat Jones",
+      age: 50,
+      title: "parent"
+    },
+    {
+      name: "Bubba Jones",
+      age: 20,
+      title: "adult child"
+    },
+    {
+      name: "Kelly Jones",
+      age: 12,
+      title: "dependent child"
+    },
+    {
+      name: "Bartleby",
+      age: 3,
+      title: "pet"
+    }
+  ]
+
+let famContainer = document.querySelector("#family");
+
+let layout = function nameList(arrayObject) {
+    return `<h3>${arrayObject.name}</h3>`
+}
+
+family.forEach( function(taco) {
+    famContainer.innerHTML += layout(taco)
+})
+
+// This also works
+// let layout = function (arrayObject) {
+//     return `<h3>${arrayObject.name}</h3>`;
+// }
+
+// function listOfFamilyNames() {
+//     for (let i = 0; i < family.length; i++)
+//     famContainer.innerHTML += layout(family[i]);
+// }
 

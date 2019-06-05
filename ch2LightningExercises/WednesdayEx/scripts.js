@@ -2,7 +2,7 @@
 
 let ages = [12, 23, 89, 16, 34, 19, 2, 7, 45, 50, 26, 102];
 
-let fave_demo = [];
+let fave_demo = []; 
 ages.forEach(certainAge => {
     if (certainAge >= 18 && certainAge <= 49) {
         fave_demo.push(certainAge)
@@ -30,6 +30,8 @@ yoda_quote.forEach(words => {
 });
 console.log(`Yoda says, "${YodaSays.join(' ')}."`)
 
+
+
 // if (words === 'the') {
 //     words = "The";
 //     let caps = words;
@@ -42,3 +44,4 @@ console.log(`Yoda says, "${YodaSays.join(' ')}."`)
 //     outPut += puncuation;
 // }
 //     console.log(outPut);
+

@@ -10,15 +10,12 @@ let sentence = ["The","walrus","danced","through","the","trees","in","the","ligh
     The addExcitement function should be an impure function, and accept
     the array as the sole argument. It should iterate over the array
     and output the words to the browser console.
-*/
-function addExcitement (theWordArray, character) {
-
-    // Each time the for loop executes, you're going to add one more word to this string
+*/const addExcitement = (theWordArray, character, num) => {
     let buildMeUp = ""
 
     for (let i = 1; i < theWordArray.length+1; i++) {
         if (i%3 === 0) {
-            buildMeUp += `${theWordArray[i-1]}${character} `
+            buildMeUp += `${theWordArray[i-1]}${character.repeat(num)} `
             console.log(buildMeUp)
         } else {
             buildMeUp += `${theWordArray[i-1]} `;
@@ -29,7 +26,8 @@ function addExcitement (theWordArray, character) {
         
     }
     
-} 
+}
+
 
 // Invoke the function and pass in the array
-addExcitement(sentence, "?");
+addExcitement(sentence, "?", 3);

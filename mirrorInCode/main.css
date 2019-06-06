@@ -1,0 +1,13 @@
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+#article1 {
+    width: 50%;
+    border: solid 1px red;
+}
+#article2 {
+    width: 50%;
+    border: solid 1px blue;
+}

@@ -8,53 +8,39 @@ const mindreadingSection = document.querySelector("#mindreading");
 
 const xraySection = document.querySelector("#xray");
 
-const allEnabled = document.querySelectorAll("section");
-const allDisabled = document.querySelectorAll("section");
 
 
-const turnAllOn = () => {
-    allEnabled.forEach(disabled => {
-        if (disabled.classList.contains('disabled')) {
-            disabled.classList.toggle('disabled');
-            disabled.classList.toggle('enabled');
-        }
-    });
-}
-
-
-const turnAllOff = () => {
-    allDisabled.forEach(enable => {
-        if (enable.classList.contains('enabled')) {
-            enable.classList.toggle('enabled');
-            enable.classList.toggle('disabled');
-        }
-    });
-}
-
-const flightHandlerFunction = () => {
-    if (flightSection.classList.contains('disabled')) {
-        flightSection.classList.toggle('disabled');
-        flightSection.classList.toggle('enabled');
+document.addEventListener("click", () => {
+    let idName = event.target.id.split("-");
+    let section = document.querySelector("idName[i]");
+    const allEnabled = document.querySelectorAll("section");
+    console.log(idName);
+    if (idName[0] === 'activate' && idName[1] === 'all') {
+        allEnabled.forEach( disable => {
+            if (disable.classList.contains('disabled')) {
+                disable.classList.toggle('disabled');
+                disable.classList.toggle('enabled');   
+            }
+        });
+    }else if (idName[1] === 'all') {
+        allEnabled.forEach( className => {
+            if (className.classList.contains('enabled')) {
+                className.classList.toggle('disabled');
+                className.classList.toggle('enabled');   
+            }
+        });
+    } else {
+        activatePower(idName[1]);
+        
     }
-}
+})
 
-const mindreadingPower = () => {
-    if (mindreadingSection.classList.contains('disabled')) {
-        mindreadingSection.classList.toggle('disabled');
-        mindreadingSection.classList.toggle('enabled');
+const activatePower = (id) => {
+    if (document.querySelector(`#${id}`).classList.contains('disabled')) {
+        document.querySelector(`#${id}`).classList.toggle('disabled');
+        document.querySelector(`#${id}`).classList.toggle('enabled');
     }
-}
 
-const xrayPower = () => {
-    if (xraySection.classList.contains('disabled')) {
-        xraySection.classList.toggle('disabled');
-        xraySection.classList.toggle('enabled');
-    }
 }
 
 
-document.querySelector("#activate-mindreading").addEventListener('click', mindreadingPower);
-document.querySelector("#activate-xray").addEventListener('click', xrayPower);
-document.querySelector("#activate-flight").addEventListener('click', flightHandlerFunction);
-document.querySelector("#activate-all").addEventListener('click', turnAllOn);
-document.querySelector("#deactivate-all").addEventListener('click', turnAllOff);
